@@ -12,7 +12,7 @@
     <div style="float: right; margin-top: 20px">
       <!-- <Page :total="getTotal()" /> -->
       总共{{getTotal()}}
-      <Page :total="pagination.total" />
+      <Page :total="pagination.total" :page-size="pagination.pageSize" @on-change="handleTableChange" />
     </div>
     <Modal :modalVisible="modalVisible" @handleCancel="handleCancel" @handleOk="handleOk" />
   </Card>
@@ -36,22 +36,27 @@ export default {
    xx: '测试',
    total: 12,
    pagination: {
-    pageNum: 1,
-    total: 0
+    current: 1,
+    total: 0,
+    pageSize: 10
    },
    modalVisible: false,
    columns: [
     {
-     title: 'Name',
-     key: 'name'
+     title: '字典码',
+     key: 'dictionaryNo'
     },
     {
-     title: 'Age',
-     key: 'age'
+     title: '字典类型',
+     key: 'dictionaryCategoryNo'
     },
     {
-     title: 'Address',
-     key: 'address'
+     title: '字典名字',
+     key: 'dictionaryNm'
+    },
+    {
+     title: '字典类型名称',
+     key: 'dictionaryCategoryNm'
     },
     {
      title: '操作',
@@ -126,17 +131,34 @@ export default {
    this.modalVisible = true;
   },
   getTotal () {
-   return this.data.length;
+   return this.pagination.total;
   },
   getData () {
-   const param = {
-    pageNum: this.pagination.pageNum
+   const param = this.pagination;
+   //  getTableData(param).then((res) => {
+   //   // this.pagination.total = res.data.total;
+   //   // this.data = res.data.users;
+   //   const ds = res.data;
+   //   this.data = ds.data.dataSource;
+   //   this.pagination = ds.data.pagination;
+   //  });
+   this.init(param);
+  },
+  handleTableChange (data) {
+   console.log(data);
+   const paras = {
+    pageNum: data,
+    pageSize: 10
    };
+   this.init(paras);
+  },
+  init (param) {
    getTableData(param).then((res) => {
     // this.pagination.total = res.data.total;
     // this.data = res.data.users;
-    console.log(res);
-    this.data = res.data;
+    const ds = res.data;
+    this.data = ds.data.dataSource;
+    this.pagination = ds.data.pagination;
    });
   },
   handleCancel (data) {
