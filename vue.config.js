@@ -16,6 +16,14 @@ const BASE_URL = process.env.NODE_ENV === 'production'
  ? '/'
  : '/';
 
+const proxyTargetMap = {
+ prod: 'https://xxx.xxx.com/',
+ dev: 'http://120.55.81.129:20080',
+ test: 'http://test.xxx.com',
+ local: 'http://localhost:8080/'
+};
+let proxyTarget = proxyTargetMap[process.env.API_TYPE] || proxyTargetMap.local;
+
 module.exports = {
  // Project deployment base
  // By default we assume your app will be deployed at the root of a domain,
@@ -43,7 +51,7 @@ module.exports = {
  devServer: {
   proxy: {
    '/api/lc': {
-    target: 'http://120.55.81.129:20080',
+    target: proxyTarget,
     ws: true,
     changeOrigin: true
    }
