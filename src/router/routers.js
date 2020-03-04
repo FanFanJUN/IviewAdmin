@@ -118,13 +118,13 @@ export default [
     component: () => import('@/view/system/userinfo/index.vue')
    },
    {
-    path: 'table-test',
-    name: 'table_test',
+    path: 'map',
+    name: 'map',
     meta: {
      // icon: 'md-notifications',
-     title: '测试'
+     title: '地图'
     },
-    component: () => import('@/view/single-page/message/index.vue')
+    component: () => import('@/view/echarts/map/index.vue')
    }
   ]
  },

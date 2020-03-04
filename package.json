@@ -36,7 +36,9 @@
     "vuedraggable": "^2.16.0",
     "vuex": "^3.0.1",
     "wangeditor": "^3.1.1",
-    "xlsx": "^0.13.3"
+    "xlsx": "^0.13.3",
+    "jsonp": "^0.2.1",
+    "echarts": "^4.6.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.1",
