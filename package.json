@@ -20,11 +20,13 @@
     "cropperjs": "^1.2.2",
     "cross-env": "^7.0.0",
     "dayjs": "^1.7.7",
-    "echarts": "^4.0.4",
+    "echarts": "^4.6.0",
     "html2canvas": "^1.0.0-alpha.12",
     "iview": "^3.2.2",
     "iview-area": "^1.5.17",
     "js-cookie": "^2.2.0",
+    "jsonp": "^0.2.1",
+    "moment": "^2.29.1",
     "sass-loader": "^8.0.2",
     "simplemde": "^1.11.2",
     "sortablejs": "^1.7.0",
@@ -36,9 +38,7 @@
     "vuedraggable": "^2.16.0",
     "vuex": "^3.0.1",
     "wangeditor": "^3.1.1",
-    "xlsx": "^0.13.3",
-    "jsonp": "^0.2.1",
-    "echarts": "^4.6.0"
+    "xlsx": "^0.13.3"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.1",

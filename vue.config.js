@@ -18,7 +18,7 @@ const BASE_URL = process.env.NODE_ENV === 'production'
 
 const proxyTargetMap = {
  prod: 'https://xxx.xxx.com/',
- dev: 'http://120.55.81.129:20080',
+ dev: 'http://39.99.234.52:9999',
  test: 'http://test.xxx.com',
  local: 'http://localhost:8080/'
 };
